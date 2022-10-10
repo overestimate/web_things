@@ -1,18 +1,18 @@
 <!doctype html>
 <head>
-	<style>body{background-color:#000;color:#eee;overflow: hidden;}iframe{position: absolute;top:10000%;right:10000%;}</style>
+	<style>body{background-color:#000;color:#eee;overflow: hidden;}iframe{opacity:0;}</style>
 </head>
 <body>
 <code id="logbox">currently searching, please don't close this tab.</code>
-<!-- bing.com/search?q=$query -->
-<iframe id="frm" src="https://bing.com"></iframe>
+<!-- www.bing.com/search?q=$query -->
+<iframe id="frm" src="https://www.bing.com"></iframe>
 <script>
   function randStr(){c="abcdefghijklmnopqrstuvwxyz";a=[Math.floor(Math.random()*26),Math.floor(Math.random()*26),Math.floor(Math.random()*26)];return c[a[0]]+c[a[1]]+c[a[2]]}
 // runs 30 searches
   frame = document.getElementById('frm')
   for (i=0;i<30;i++) {
     setTimeout(() => {
-	  url="https://bing.com/search?q="+randStr()
+	  url="https://www.bing.com/search?q="+randStr()
 	  frame.src=url
 	}, i*750)
   }
