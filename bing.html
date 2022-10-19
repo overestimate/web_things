@@ -1,21 +1,23 @@
 <!doctype html>
 <head>
-	<style>body{background-color:#000;color:#eee;overflow: hidden;}iframe{opacity:0;}</style>
+	<style>body{background-color:#000;color:#eee;overflow: hidden;}iframe{display:none;}</style>
 </head>
 <body>
 <code id="logbox">currently searching, please don't close this tab.</code>
 <!-- www.bing.com/search?q=$query -->
-<iframe id="frm" src="https://www.bing.com"></iframe>
+<div id="frmbox"></div>
 <script>
   function randStr(){c="abcdefghijklmnopqrstuvwxyz";a=[Math.floor(Math.random()*26),Math.floor(Math.random()*26),Math.floor(Math.random()*26)];return c[a[0]]+c[a[1]]+c[a[2]]}
 // runs 30 searches
-  frame = document.getElementById('frm')
+  frame = document.getElementById('frmbox')
   for (i=0;i<30;i++) {
     setTimeout(() => {
+          newframe = document.createElement("iframe")
 	  url="https://www.bing.com/search?q="+randStr()
-	  frame.src=url
-	}, i*750)
+	  newframe.src=url
+          frame.appendChild(newframe)
+	}, i*200)
   }
-  setTimeout(()=>{document.getElementById("logbox").innerHTML="you can close this tab now"}, 23250)
+  setTimeout(()=>{document.getElementById("logbox").innerHTML="you can close this tab now"}, 10000)
 </script>
 </body>
